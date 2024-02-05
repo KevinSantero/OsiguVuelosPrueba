@@ -5,11 +5,9 @@ using Web.Extencion;
 using Web.Identity;
 using Web.Services.Interface;
 
-
 namespace Web.Services
 {
-
-    public class AereoliniaService : BaseHttp, IAereoliniaService
+      public class AereoliniaService : BaseHttp, IAereoliniaService
     {
         public AereoliniaService(HttpClient http
                 , ISessionStorageService sessionStorageService

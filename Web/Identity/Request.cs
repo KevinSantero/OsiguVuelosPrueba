@@ -16,7 +16,7 @@
     public class ResultResponse<T>
     {
         public T value { get; set; }
-        public bool isSuccess { get; set; }
+        public bool isSuccess { get; set; } = true;
         public bool isFailure { get; set; }
         public Error error { get; set; }
     }

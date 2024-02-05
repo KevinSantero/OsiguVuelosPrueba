@@ -22,7 +22,9 @@ namespace Web.Identity
             }
             else
             {
-                return null;
+                var content = await result.Content.ReadAsStringAsync();
+                var deserlizado = JsonConvert.DeserializeObject<ResultResponse<string>>(content);
+                return deserlizado;
             }
         }
         public async Task<bool> Register(RegisterRequest request)

@@ -1,12 +1,15 @@
 ﻿@page "/programar"
+@using Blazored.Toast.Services;
 @using Domain.Shemas;
 @using Microsoft.AspNetCore.Authorization;
+@using System.Net;
 @using Web.Services.Interface;
 @using Web.Services;
 @inject ICiudadService _ciudadService
 @inject IAereoliniaService _aereolineaService
 @inject IVueloService _vueloService
 @inject NavigationManager NavigationManager
+@inject IToastService toastService
 @attribute [Authorize]
 
 <PageTitle>Counter</PageTitle>
@@ -59,11 +62,6 @@
         <ValidationMessage For="@(() => vuelo.Fecha)"></ValidationMessage>
     </div>
 
-   @*  <div class="mb-3">
-        <label class="form-label">Hora de Salida </label>
-        <InputDate Type="InputDateType.Time" @bind-Value="@vuelo.HoraSalida" />
-    </div> *@
-
      <div class="mb-3">
         <label class="form-label">Hora de Salida </label>
         <label class="form-label">11:00 am </label>
@@ -78,7 +76,7 @@
         Programar Vuelo
     </button>
 
-    <a class="btn btn-warning" href="empleados">Volver</a>
+    <a class="btn btn btn-dark" href="ListaVuelos/1">Volver</a>
 </EditForm>
 
 
@@ -101,11 +99,31 @@
     {
         vuelo.HoraSalida = new TimeSpan(11, 00, 00);
         vuelo. HoraLlegada= new TimeSpan(14, 00, 00);
+        try
+        {
+            var response = (await _vueloService.ProgramarVuelo(vuelo));
 
-        int id = (await _vueloService.ProgramarVuelo(vuelo)).value;
+            if (response.isSuccess)
+            {
+                NavigationManager.NavigateTo("/ListaVuelos/1");
+            }
+            else
+            {
+                toastService.ShowError("Se ha presentado un error al crear la programacion");
+            }
 
-        if (id != 0)
-            NavigationManager.NavigateTo("/ListaVuelos");
+        }
+        catch (WebException ex)
+        {
+            toastService.ShowError("Error en la connecion");
+        }
+        catch (Exception)
+        {
+            toastService.ShowError("Puede que se haya ocurrido un error en el servidor");
+        }
 
+       
+
+      
     }
 }

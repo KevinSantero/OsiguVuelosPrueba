@@ -1,4 +1,5 @@
 using Blazored.SessionStorage;
+using Blazored.Toast;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -31,6 +32,6 @@ builder.Services.AddHttpClient<AuthService>(options =>
 
 builder.Services.AddOptions();
 builder.Services.AddAuthorizationCore();
-
+builder.Services.AddBlazoredToast();
 
 await builder.Build().RunAsync();

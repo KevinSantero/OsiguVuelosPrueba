@@ -1,9 +1,19 @@
 ﻿@inherits LayoutComponentBase
 
+@using Blazored.Toast
+@using Blazored.Toast.Configuration;
+
+<BlazoredToasts Position="ToastPosition.BottomRight"
+                ShowProgressBar="true"
+                IconType="IconType.FontAwesome"
+                SuccessClass="success-toast-override"
+                ErrorIcon="fa fa-bug" 
+                SuccessIcon="fa fa-thumbs-up"/>
+
 <div class="page">
     <main>
         <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+            <a href="" target="_blank">Proyecto realizado por Kevin Santero</a>
         </div>
 
         <article class="content px-4">

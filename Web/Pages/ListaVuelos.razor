@@ -1,9 +1,12 @@
 ﻿@page "/listaVuelos"
 @page "/listaVuelos/{estado:int}"
 
+@using Blazored.Toast.Services;
 @using Domain.Shemas;
 @using Microsoft.AspNetCore.Authorization;
+@using System.Net;
 @inject NavigationManager NavigationManager
+@inject IToastService toastService
 
 @inject Web.Services.Interface.IVueloService _vueloServices
 @attribute [Authorize]
@@ -19,7 +22,7 @@
 else
 {
 	<div class="top-row px-4">
-		<button class="btn btn-primary" @onclick="()=> { IrACreacion(); }">Programar nuevo vuelo</button>
+		<button class="btn btn-link" @onclick="()=> { IrACreacion(); }">Programar nuevo vuelo</button>
 	</div>
 
 	<table class="table">
@@ -66,8 +69,19 @@ else
 
 	protected override async Task OnInitializedAsync()
 	{
-		vuelos = (await _vueloServices.ObtenerVuelos(estado)).value;
-		var datos = 1;
+		try
+		{
+			vuelos = (await _vueloServices.ObtenerVuelos(estado)).value;
+		}
+		catch (WebException ex)
+		{
+			toastService.ShowError("Error en la connecion");
+		}
+		catch (Exception)
+		{
+			toastService.ShowError("Puede que se haya ocurrido un error en el servidor");
+		}
+	
 	}
 
 	protected void IrAdetalle(int id)
