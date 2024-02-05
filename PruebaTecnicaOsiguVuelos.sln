@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{F10C4382-A744-4FA1-BF38-0764029D2A2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominio", "Dominio\Dominio.csproj", "{F10C4382-A744-4FA1-BF38-0764029D2A2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infraestructura", "Infraestructura\Infraestructura.csproj", "{E9CF176D-DA57-457D-A9DC-F6EECCABF1F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infraestructura", "Infraestructura\Infraestructura.csproj", "{E9CF176D-DA57-457D-A9DC-F6EECCABF1F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aplicacion", "Aplicacion\Aplicacion.csproj", "{519E6ED1-DBB2-4509-BB80-ABDB7DF414F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aplicacion", "Aplicacion\Aplicacion.csproj", "{519E6ED1-DBB2-4509-BB80-ABDB7DF414F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Shemas", "Domain.Shemas\Domain.Shemas.csproj", "{36F63D77-D001-41A8-9027-89909084FE54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Shemas", "Domain.Shemas\Domain.Shemas.csproj", "{36F63D77-D001-41A8-9027-89909084FE54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentacion", "Presentacion\Presentacion.csproj", "{33FD3651-F5D0-4447-AEFC-30725063FF71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Presentacion\Api.csproj", "{33FD3651-F5D0-4447-AEFC-30725063FF71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{6FD0CE5C-B599-4804-AC5D-0FA84788B467}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "Web\Web.csproj", "{6FD0CE5C-B599-4804-AC5D-0FA84788B467}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

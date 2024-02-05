@@ -5152,9 +5152,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Proyectos\\OsiguVuelosPruebaTecnica\\Presentacion\\Presentacion.csproj",
-      "projectName": "Presentacion",
-      "projectPath": "C:\\Proyectos\\OsiguVuelosPruebaTecnica\\Presentacion\\Presentacion.csproj",
+      "projectUniqueName": "C:\\Proyectos\\OsiguVuelosPruebaTecnica\\Presentacion\\Api.csproj",
+      "projectName": "Api",
+      "projectPath": "C:\\Proyectos\\OsiguVuelosPruebaTecnica\\Presentacion\\Api.csproj",
       "packagesPath": "C:\\Users\\prueba\\.nuget\\packages\\",
       "outputPath": "C:\\Proyectos\\OsiguVuelosPruebaTecnica\\Presentacion\\obj\\",
       "projectStyle": "PackageReference",

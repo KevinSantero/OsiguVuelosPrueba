@@ -2,7 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Presentacion.Controllers.Usuario
+namespace Api.Controllers.Usuario
 {
     [ApiController]
     [Route("api/usuario")]

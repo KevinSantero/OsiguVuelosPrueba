@@ -15,3 +15,20 @@ C:\Proyectos\PruebaTecnica Osigu\Aplicacion\obj\Debug\net6.0\Aplicacion.dll
 C:\Proyectos\PruebaTecnica Osigu\Aplicacion\obj\Debug\net6.0\refint\Aplicacion.dll
 C:\Proyectos\PruebaTecnica Osigu\Aplicacion\obj\Debug\net6.0\Aplicacion.pdb
 C:\Proyectos\PruebaTecnica Osigu\Aplicacion\obj\Debug\net6.0\ref\Aplicacion.dll
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\bin\Debug\net6.0\Aplicacion.deps.json
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\bin\Debug\net6.0\Aplicacion.dll
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\bin\Debug\net6.0\Aplicacion.pdb
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\bin\Debug\net6.0\Domain.Shemas.dll
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\bin\Debug\net6.0\Dominio.dll
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\bin\Debug\net6.0\Domain.Shemas.pdb
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\bin\Debug\net6.0\Dominio.pdb
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\obj\Debug\net6.0\Aplicacion.csproj.AssemblyReference.cache
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\obj\Debug\net6.0\Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\obj\Debug\net6.0\Aplicacion.AssemblyInfoInputs.cache
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\obj\Debug\net6.0\Aplicacion.AssemblyInfo.cs
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\obj\Debug\net6.0\Aplicacion.csproj.CoreCompileInputs.cache
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\obj\Debug\net6.0\Aplicacion.csproj.CopyComplete
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\obj\Debug\net6.0\Aplicacion.dll
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\obj\Debug\net6.0\refint\Aplicacion.dll
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\obj\Debug\net6.0\Aplicacion.pdb
+C:\Proyectos\OsiguVuelosPruebaTecnica\Aplicacion\obj\Debug\net6.0\ref\Aplicacion.dll

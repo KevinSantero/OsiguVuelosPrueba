@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6GNIIfd2KVleBNM+DPf4DatIS1TPsLqearFwhCV8nFc0fFj8R6ov9Pvy4ucTn1bW7CIQBzUCXW9teV113Du0HA==",
+  "dgSpecHash": "DbMwsXEdC3u5JR443kHeqL5PLILRxML+NF+i1HjlXPqCIMCmbVRLeYeF/C92b1pVqyKe/HuBjKMpU4zOUdlLDA==",
   "success": true,
-  "projectFilePath": "C:\\Proyectos\\OsiguVuelosPruebaTecnica\\Presentacion\\Presentacion.csproj",
+  "projectFilePath": "C:\\Proyectos\\OsiguVuelosPruebaTecnica\\Presentacion\\Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\prueba\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\prueba\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

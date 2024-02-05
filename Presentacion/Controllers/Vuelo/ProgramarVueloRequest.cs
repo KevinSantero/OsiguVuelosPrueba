@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Controllers.Vuelo;
+﻿namespace Api.Controllers.Vuelo;
     public sealed record ProgramarVueloRequest(
      int CiudadOrigenId,
      int CiudadDestinoId,
