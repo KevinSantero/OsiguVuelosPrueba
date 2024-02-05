@@ -1,0 +1,88 @@
+﻿@page "/listaVuelos"
+@page "/listaVuelos/{estado:int}"
+
+@using Domain.Shemas;
+@using Microsoft.AspNetCore.Authorization;
+@inject NavigationManager NavigationManager
+
+@inject Web.Services.Interface.IVueloService _vueloServices
+@attribute [Authorize]
+
+<PageTitle>lista de vuelos por salida</PageTitle>
+
+<h3>Lista de vuelos</h3>
+
+@if (vuelos == null)
+{
+	<p><em>No hay informacion</em></p>
+}
+else
+{
+	<button class="btn btn-primary" @onclick="()=> { IrACreacion(); }">Programar nuevo vuelo</button>
+	
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Numero</th>
+				<th>Ciudad Origen</th>
+				<th>Cidad Destino</th>
+				<th>Aereolinia</th>
+				<th>Fecha</th>
+				<th>H.Salida</th>
+				<th>H.Llegada</th>
+				<th>Estado</th>
+				<th>Detalle</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var vuelo in vuelos)
+			{
+				<tr>
+					<td>@vuelo.NumeroVuelo</td>
+					<td>@vuelo.CiudadOrigen</td>
+					<td>@vuelo.CiudadDestino</td>
+					<td>@vuelo.NombreAerolinia</td>
+					<td>@vuelo.Fecha.ToString("d")</td>
+					<td>@vuelo.HoraSalida</td>
+					<td>@vuelo.HoraLlegada</td>
+					<td>@(((VueloEstado)vuelo.Estado).ToString())</td>
+					<td>
+						<button class="btn btn-success" @onclick="()=> { IrAdetalle(vuelo.Id); }">Ver detalle</button>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+
+@code {
+
+	[Parameter]
+	public int estado { get; set; } = 1;
+
+	List<VuelosScheme>? vuelos = null;
+
+	protected override async Task OnInitializedAsync()
+	{
+		vuelos = (await _vueloServices.ObtenerVuelos(estado)).value;
+		var datos = 1;
+	}
+
+	protected void IrAdetalle(int id)
+	{
+		NavigationManager.NavigateTo($"/vuelodetalle/{id}");
+	}
+	protected void IrACreacion()
+	{
+		NavigationManager.NavigateTo($"/Programar");
+	}
+
+
+	public enum VueloEstado
+	{
+		Saliente = 1,
+		Volando = 2,
+		Completado = 2
+	}
+
+}

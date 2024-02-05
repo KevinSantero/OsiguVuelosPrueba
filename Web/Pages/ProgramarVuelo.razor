@@ -1,0 +1,111 @@
+﻿@page "/programar"
+@using Domain.Shemas;
+@using Microsoft.AspNetCore.Authorization;
+@using Web.Services.Interface;
+@using Web.Services;
+@inject ICiudadService _ciudadService
+@inject IAereoliniaService _aereolineaService
+@inject IVueloService _vueloService
+@inject NavigationManager NavigationManager
+@attribute [Authorize]
+
+<PageTitle>Counter</PageTitle>
+
+<h3>Programacion de vuelo</h3>
+
+<EditForm Model="vuelo" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+   
+    <div class="mb-3">
+        <label class="form-label">Aereolinia</label>
+        <InputSelect class="form-select" @bind-Value="vuelo.AeroliniaId">
+            <option value="0">-- Seleccionar --</option>
+            @foreach (var item in listaAereolinia)
+            {
+                <option value="@item.Id">@item.Nombre</option>
+            }
+        </InputSelect>
+        <ValidationMessage For="@(() => vuelo.AeroliniaId)"></ValidationMessage>
+    </div>
+
+
+    <div class="mb-3">
+        <label class="form-label">Ciudad Origen</label>
+        <InputSelect class="form-select" @bind-Value="vuelo.CiudadOrigenId">
+            <option value="0">-- Seleccionar --</option>
+            @foreach (var item in listaCiuddad)
+            {
+                <option value="@item.Id">@item.Nombre</option>
+            }
+        </InputSelect>
+        <ValidationMessage For="@(() => vuelo.CiudadOrigenId)"></ValidationMessage>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Ciudad Destino</label>
+        <InputSelect class="form-select" @bind-Value="vuelo.CiudadDestinoId">
+            <option value="0">-- Seleccionar --</option>
+            @foreach (var item in listaCiuddad)
+            {
+                <option value="@item.Id">@item.Nombre</option>
+            }
+        </InputSelect>
+        <ValidationMessage For="@(() => vuelo.CiudadDestinoId)"></ValidationMessage>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Fecha </label>
+        <InputDate class="form-control" @bind-Value="vuelo.Fecha" id="HoraLlegada" />
+        <ValidationMessage For="@(() => vuelo.Fecha)"></ValidationMessage>
+    </div>
+
+   @*  <div class="mb-3">
+        <label class="form-label">Hora de Salida </label>
+        <InputDate Type="InputDateType.Time" @bind-Value="@vuelo.HoraSalida" />
+    </div> *@
+
+     <div class="mb-3">
+        <label class="form-label">Hora de Salida </label>
+        <label class="form-label">11:00 am </label>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Hora de Llega </label>
+        <label class="form-label">2:00 pm </label>
+    </div> 
+
+    <button class="btn btn-primary" type="submit">
+        Programar Vuelo
+    </button>
+
+    <a class="btn btn-warning" href="empleados">Volver</a>
+</EditForm>
+
+
+@code {
+
+    public ProgramarVueloScheme vuelo = new ProgramarVueloScheme();
+
+    List<CiudadSchema> listaCiuddad = new List<CiudadSchema>();
+    List<AereolineaScheme> listaAereolinia= new List<AereolineaScheme>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        listaCiuddad = (await _ciudadService.ObtenerCiudad()).value;
+        listaAereolinia = (await _aereolineaService.ObtenerAereolinia()).value;
+
+        vuelo.Fecha = DateTime.Now;
+    }
+
+    private async Task OnValidSubmit()
+    {
+        vuelo.HoraSalida = new TimeSpan(11, 00, 00);
+        vuelo. HoraLlegada= new TimeSpan(14, 00, 00);
+
+        int id = (await _vueloService.ProgramarVuelo(vuelo)).value;
+
+        if (id != 0)
+            NavigationManager.NavigateTo("/ListaVuelos");
+
+    }
+}

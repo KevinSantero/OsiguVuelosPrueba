@@ -1,0 +1,64 @@
+﻿@page "/vuelodetalle"
+@page "/vuelodetalle/{id:int}"
+
+@using Domain.Shemas;
+@using Microsoft.AspNetCore.Authorization;
+@inject NavigationManager NavigationManager
+@inject Web.Services.Interface.IVueloService _vueloServices
+@attribute [Authorize]
+
+<PageTitle>Detalle del vuelo</PageTitle>
+
+<h3>Detalle de vuelo</h3>
+
+@if (vuelo == null)
+{
+	<p><em>Cargando...</em></p>
+}
+else
+{
+	<ul class="list-group">
+		<li class="list-group-item">Numero de vuelo <h4> @vuelo.NumeroVuelo</h4></li>
+		<li class="list-group-item">Aereolinia<h4> @vuelo.NombreAerolinia</h4></li>
+		<li class="list-group-item">Ciudad De Origen<h4> @vuelo.CiudadOrigen</h4></li>
+		<li class="list-group-item">Ciudad De Destino<h4> @vuelo.CiudadDestino</h4></li>
+		<li class="list-group-item">Fecha <h4> @vuelo.Fecha.ToString("d")</h4></li>
+		<li class="list-group-item">Hora de Salida<h4> @vuelo.HoraSalida.ToString()</h4></li>
+		<li class="list-group-item">Hora de Lleganda<h4> @vuelo.HoraLlegada.ToString()</h4></li>
+		<li class="list-group-item">Estado<h4> @(((VueloEstado)vuelo.Estado).ToString())</h4></li>
+		<li class="list-group-item">Usuario De Creacion<h4>@(vuelo.UsuarioCreacion)</h4></li>
+		<li class="list-group-item">Fecha Creacion<h4>@vuelo.FechaCreacion</h4></li>
+		<li class="list-group-item">Usuario De Actualizacion<h4> @(vuelo.FechaActualizacion.ToString("d"))</h4></li>
+		<li class="list-group-item">Fecha Actualizacion<h4> @vuelo.FechaActualizacion.ToString("d")</h4></li>
+	</ul>
+}
+
+@code {
+
+	[Parameter]
+	public int id{ get; set; } =0 ;
+
+	VueloScheme? vuelo = null;
+
+	protected override async Task OnInitializedAsync()
+	{
+		if (id ==0)
+		{
+			vuelo = new VueloScheme();
+		}
+		vuelo = (await _vueloServices.ObtenerVueloDetalle(id)).value;
+	}
+
+	protected void irAdetalle(int Id)
+	{
+		NavigationManager.NavigateTo("/VueloDetalle");
+	}
+
+	public enum VueloEstado
+	{
+		Saliente = 1,
+		Volando = 2,
+		Completado = 2
+	}
+
+}

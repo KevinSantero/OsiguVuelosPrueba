@@ -1,0 +1,15 @@
+C:\Proyectos\PruebaTecnica Osigu\Domain.Shemas\bin\Debug\net6.0\Domain.Shemas.deps.json
+C:\Proyectos\PruebaTecnica Osigu\Domain.Shemas\bin\Debug\net6.0\Domain.Shemas.dll
+C:\Proyectos\PruebaTecnica Osigu\Domain.Shemas\bin\Debug\net6.0\Domain.Shemas.pdb
+C:\Proyectos\PruebaTecnica Osigu\Domain.Shemas\bin\Debug\net6.0\Dominio.dll
+C:\Proyectos\PruebaTecnica Osigu\Domain.Shemas\bin\Debug\net6.0\Dominio.pdb
+C:\Proyectos\PruebaTecnica Osigu\Domain.Shemas\obj\Debug\net6.0\Domain.Shemas.csproj.AssemblyReference.cache
+C:\Proyectos\PruebaTecnica Osigu\Domain.Shemas\obj\Debug\net6.0\Domain.Shemas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\PruebaTecnica Osigu\Domain.Shemas\obj\Debug\net6.0\Domain.Shemas.AssemblyInfoInputs.cache
+C:\Proyectos\PruebaTecnica Osigu\Domain.Shemas\obj\Debug\net6.0\Domain.Shemas.AssemblyInfo.cs
+C:\Proyectos\PruebaTecnica Osigu\Domain.Shemas\obj\Debug\net6.0\Domain.Shemas.csproj.CoreCompileInputs.cache
+C:\Proyectos\PruebaTecnica Osigu\Domain.Shemas\obj\Debug\net6.0\Domain.Shemas.csproj.CopyComplete
+C:\Proyectos\PruebaTecnica Osigu\Domain.Shemas\obj\Debug\net6.0\Domain.Shemas.dll
+C:\Proyectos\PruebaTecnica Osigu\Domain.Shemas\obj\Debug\net6.0\refint\Domain.Shemas.dll
+C:\Proyectos\PruebaTecnica Osigu\Domain.Shemas\obj\Debug\net6.0\Domain.Shemas.pdb
+C:\Proyectos\PruebaTecnica Osigu\Domain.Shemas\obj\Debug\net6.0\ref\Domain.Shemas.dll
