@@ -9,10 +9,6 @@
                 @{
                     if (context.User.Identity?.IsAuthenticated != true)
                         navManager.NavigateTo("/auth/login");
-                    // else
-                    // {
-                    //     <p class="alert alert-danger">No esta autorizado para ver esta pagina</p>
-                    // }
                 }
 
             </NotAuthorized>
@@ -22,7 +18,7 @@
         <CascadingAuthenticationState>
             <PageTitle>Not found</PageTitle>
             <LayoutView Layout="@typeof(MainLayout)">
-                <p role="alert">Sorry, there's nothing at this address.</p>
+                <p role="alert">>No se encontro esta direccion.</p>
             </LayoutView>
         </CascadingAuthenticationState>
     </NotFound>

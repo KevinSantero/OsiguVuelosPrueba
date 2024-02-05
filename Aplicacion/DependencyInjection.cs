@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Aplicacion.Abstractions.Behaviors;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Aplicacion
@@ -11,14 +12,11 @@ namespace Aplicacion
             {
                 configuration.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
                 //configuration.AddOpenBehavior(typeof(LoggingBehavior<,>));
-                //configuration.AddOpenBehavior(typeof(ValidationBehavior<,>));
-
+                configuration.AddOpenBehavior(typeof(ValidationBehavior<,>));
             });
 
             services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly);
-
-            //services.AddTransient<PrecioService>();
-
+            
             return services;
         }
     }
