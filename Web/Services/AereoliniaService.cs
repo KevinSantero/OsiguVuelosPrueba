@@ -8,7 +8,7 @@ using Web.Services.Interface;
 namespace Web.Services
 {
       public class AereoliniaService : BaseHttp, IAereoliniaService
-    {
+       {
         public AereoliniaService(HttpClient http
                 , ISessionStorageService sessionStorageService
                 , IConfiguration configuration) :base(http, sessionStorageService, configuration )

@@ -1,4 +1,4 @@
-Base de datos :   Ejecutar primero el query que esta en la carpeta SqlQuery para la creación de la base de dato  o  con el comando add-migración para realizar el mismo proceso
+Base de datos :   Ejecutar primero el query que esta en la carpeta SqlQuery para la creación de la base de dato  o  con el comando updadte-data base para realizar el mismo proceso
 
   - Ejecutar el script de la vistas para listar los vuelos
 
