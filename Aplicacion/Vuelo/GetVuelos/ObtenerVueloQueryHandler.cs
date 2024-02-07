@@ -15,12 +15,12 @@
         }
         public async Task<Result<VueloScheme?>> Handle(ObtenerVueloQuery request, CancellationToken cancellationToken)
         {
-            if (request.id <= 0)
+            if (request.id == 0)
             {
                 return Result.Failure<VueloScheme?>(VueloErrors.IdEmpety);
             }
 
-            var vuelo = (await _vueloQueries.ObtenerDetalleVuelo(request.id))!;
+			var vuelo = (await _vueloQueries.ObtenerDetalleVuelo(request.id))!;
 
             if (vuelo==null)
             {

@@ -28,11 +28,11 @@ namespace Api.Controllers.Vuelo
         [HttpGet("detalle/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Result<VueloScheme>))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(Result<VueloScheme>))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(void))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BadRequestObjectResult))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ObjectResult))]
         public async Task<IActionResult> Detalle(int id, CancellationToken cancellationToken )
         {
-            var query = new ObtenerVueloQuery(id);
+			var query = new ObtenerVueloQuery(id);
 
             var resultado = await _sender.Send(query, cancellationToken);
 
@@ -43,7 +43,7 @@ namespace Api.Controllers.Vuelo
         [HttpGet("{estado?}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Result<List<VuelosScheme>>))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(VuelosScheme))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(void))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BadRequestObjectResult))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ObjectResult))]
         public async Task<IActionResult> List(CancellationToken cancellationToken, int? estado = null)
         {
@@ -70,7 +70,7 @@ namespace Api.Controllers.Vuelo
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ProgramarVueloRequest))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(void))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(void))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Result))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ObjectResult))]
         public async Task<IActionResult> Post([FromBody] ProgramarVueloRequest request, CancellationToken cancellationToken)
         {
@@ -89,7 +89,19 @@ namespace Api.Controllers.Vuelo
 
             var resultado = await _sender.Send(command, cancellationToken);
 
-            return resultado.IsSuccess ? Created("", resultado) : NotFound();
+            return resultado.IsSuccess ? Created("", resultado) : BadRequest(resultado);
         }
+
+        //[HttpPut]
+        //public async Task<IActionResult> Put([FromBody] ActualizarProgramaRequest request, CancellationToken cancellationToken)
+        //{
+        //    var userId = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+        //}
+
+        //[HttpDelete]
+        //public async Task<IActionResult> Delete([FromBody] EliminarProgramarVueloRequest request, CancellationToken cancellationToken)
+        //{
+        //    var userId = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+        //}
     }
 }

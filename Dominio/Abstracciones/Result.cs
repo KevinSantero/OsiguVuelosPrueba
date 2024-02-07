@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 
 namespace Dominio.Abstracciones
 {
@@ -35,7 +36,10 @@ namespace Dominio.Abstracciones
         public static Result<TValue> Failure<TValue>(Error error)
             => new(default, false, error);
 
-        public static Result<TValue> Create<TValue>(TValue? value)
+		public static Result<TValue> Failure<TValue>(string error)
+		=> new(default, false, new Error("exepcion", error));
+
+		public static Result<TValue> Create<TValue>(TValue? value)
             => value is not null
             ? Success(value)
             : Failure<TValue>(Error.NullValue);

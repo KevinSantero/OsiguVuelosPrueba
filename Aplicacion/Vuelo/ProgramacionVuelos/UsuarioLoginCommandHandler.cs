@@ -21,15 +21,25 @@ namespace Aplicacion.Usuario.Login
 
         public async Task<Result<int>> Handle(ProgramacionVueloCommand request, CancellationToken cancellationToken)
         {
-            var vuelo = Dominio.Vuelos.Vuelo.Programar(
-                request.CiudadOrigenId,
-                request.CiudadDestinoId,
-                request.Fecha,
-                request.HoraSalida,
-                request.HoraLlegada,
-                request.AeroliniaId,
-                request.UsuarioCreacionId);
+			Dominio.Vuelos.Vuelo vuelo = new();
 
+            try
+            {
+			    vuelo = Dominio.Vuelos.Vuelo.Programar(
+				request.CiudadOrigenId,
+				request.CiudadDestinoId,
+				request.Fecha,
+				request.HoraSalida,
+				request.HoraLlegada,
+				request.AeroliniaId,
+				request.UsuarioCreacionId);
+			}
+            catch (Exception e)
+            {
+				return Result.Failure<int>(e.Message);
+			}
+			    
+          
             using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
                 try
@@ -49,6 +59,9 @@ namespace Aplicacion.Usuario.Login
             }
 
             return Result.Success(vuelo.Id);
+
+
+
         }
 
 

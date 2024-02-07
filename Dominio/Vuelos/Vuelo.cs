@@ -5,6 +5,7 @@
     using Dominio.Ciudades;
     using Dominio.Usuario;
     using Dominio.Usuarios;
+    using System.Runtime.CompilerServices;
 
     public  class Vuelo: BaseEntity<int>
     {
@@ -112,6 +113,60 @@
 
         }
 
+
+        private  Vuelo ActualizarProgramar(
+             int ciudadOrigen,
+                int ciudadDestino,
+                DateTime fecha,
+                TimeSpan horaSalida,
+                TimeSpan horaLlegada,
+                int aerolineaId,
+                VueloEstado estado,
+                Guid usuarioCreacionId
+            )
+         {
+            if (horaSalida == horaLlegada)
+            {
+                throw new
+                ApplicationException("La hora salida es igual la hora de llegada");
+            }
+
+            if (horaSalida > horaLlegada)
+            {
+                throw new
+                ApplicationException("La hora salida es anterio a la horas de llegada");
+            }
+
+            if (ciudadOrigen == ciudadDestino)
+            {
+                throw new
+                ApplicationException("La ciudad de origen y destino no puede ser iguales");
+            }
+
+
+            if (Estado == VueloEstado.Completado)
+            {
+                throw new
+                ApplicationException("Este vuelo a se ha completado");
+            }
+
+            Estado = estado;
+
+            CiudadOrigenId = ciudadOrigen;
+            CiudadDestinoId = ciudadDestino;
+            Fecha = fecha;
+            HoraSalida = horaSalida;
+            HoraSalida = horaSalida;
+            AerolineaId = aerolineaId;
+       
+            UsuarioActualizacionId = usuarioCreacionId;
+            FechaActualizacion = DateTime.Now;
+
+            return this;
+
+        }
+
+
         public Result ActualizarEstado(Guid usuarioId, VueloEstado estado)
         {
             if (estado == VueloEstado.Completado)
@@ -125,6 +180,9 @@
             //RaiseDomainEvent(new AlquilerConfirmadoDomainEvent(Id));
             return Result.Success();
         }
+
+
+
 
         private static int NuevoNumeroDeVuelo() {
 

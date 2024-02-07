@@ -62,15 +62,22 @@
         <ValidationMessage For="@(() => vuelo.Fecha)"></ValidationMessage>
     </div>
 
-     <div class="mb-3">
+   
+
+    <div class="mb-3">
+        <label class="form-label">Hora de Llega </label>
+        <label class="form-label">2:00 pm </label>
+    </div>
+
+    <div class="mb-3">
         <label class="form-label">Hora de Salida </label>
         <label class="form-label">11:00 am </label>
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Hora de Llega </label>
-        <label class="form-label">2:00 pm </label>
-    </div> 
+        <label class="form-label">Estado </label>
+        <label class="form-label"> <b>SALIENTE </b></label>
+    </div>
 
     <button class="btn btn-primary" type="submit">
         Programar Vuelo
@@ -109,7 +116,7 @@
             }
             else
             {
-                toastService.ShowError("Se ha presentado un error al crear la programacion");
+                toastService.ShowError(response.error.name);
             }
 
         }
